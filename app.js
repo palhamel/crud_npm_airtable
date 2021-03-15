@@ -10,9 +10,18 @@ var base = new Airtable({ apiKey: process.env.API_KEY_AIRTABLE }).base(
 
 const table = base('uscreen')
 
+// get all:
 const getRecords = async () => {
-  const records = await table.select().firstPage()
+  const records = await table
+    .select({ maxRecords: 3, view: 'Grid view' })
+    .firstPage()
   console.log(records)
 }
+// getRecords()
 
-getRecords()
+// get by id:
+const getRecordById = async () => {
+  const record = await table.find('recg2D5xnT347MMdT')
+  console.log(record)
+}
+getRecordById()
