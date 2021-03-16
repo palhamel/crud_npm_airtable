@@ -8,6 +8,8 @@ var Airtable = require('airtable')
 var base = new Airtable({ apiKey: apiAirTable }).base(baseAirTable)
 const table = base('uscreen')
 
+// ----------------------------------------------------
+
 // ==> get all records in table:
 const getRecords = async () => {
   const records = await table
@@ -17,6 +19,8 @@ const getRecords = async () => {
 }
 // getRecords()
 
+// ----------------------------------------------------
+
 // ==> get record by id:
 const getRecordById = async (theId) => {
   const record = await table.find(theId)
@@ -24,12 +28,21 @@ const getRecordById = async (theId) => {
 }
 // getRecordById('recg2D5xnT347MMdT')
 
+// ----------------------------------------------------
+
 // ==> create records
 const createRecord = async (fields) => {
-  const createdRecords = await table.create(fields)
-  console.log(createdRecords)
+  const createdRecord = await table.create(fields)
+  console.log(selectedInfo(createdRecord))
 }
-
+// function to clg only the important parts in return:
+const selectedInfo = (data) => {
+  return {
+    id: data.id,
+    fields: data.fields,
+    // createdTime: data.createdTime, // <= not working yet
+  }
+}
 createRecord({
   id: 200,
   name: 'Jim',
@@ -37,3 +50,4 @@ createRecord({
   custom_fields: 'new addition',
   event: 'user_created',
 })
+// ----------------------------------------------------
