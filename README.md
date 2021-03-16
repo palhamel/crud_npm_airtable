@@ -7,8 +7,13 @@
 - nodemon
 - npm airtable
 
+ - error handling try/catch
+ - async
+
+ - ES6 imports of modules
 
 
 
-##### run with nodemon: `npm start`
-##### run: `node app.js``
+##### run with nodemon during development: `npm start`
+
+##### run selected functions: `node app.js`

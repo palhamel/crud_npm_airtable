@@ -1,11 +1,10 @@
 require('dotenv').config()
-
 const apiAirTable = process.env.API_KEY_AIRTABLE
 const baseAirTable = process.env.BASE_AIRTABLE
 
-var Airtable = require('airtable')
+const Airtable = require('airtable')
 
-var base = new Airtable({ apiKey: apiAirTable }).base(baseAirTable)
+const base = new Airtable({ apiKey: apiAirTable }).base(baseAirTable)
 const table = base('uscreen')
 
 /*
@@ -35,7 +34,7 @@ const getRecords = async () => {
     console.error(err)
   }
 }
-// getRecords()
+getRecords()
 
 // ----------------------------------------------------
 
@@ -93,5 +92,4 @@ const deleteRecord = async (id) => {
     console.error(err)
   }
 }
-
-deleteRecord('recUuA1wXiyyc1rvg')
+// deleteRecord('recUuA1wXiyyc1rvg')
