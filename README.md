@@ -16,12 +16,11 @@ This app is using node.js for CRUD operations with AirTable, including error han
 
 #### Tech used: 
 - JavaScript
-- Node
+- Node.js
 - dotenv
 - airtable.js
 - nodemon
 - VS Code
 - Postman
-- MongoDB Compass
 
 ##
