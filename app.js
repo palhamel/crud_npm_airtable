@@ -36,18 +36,37 @@ const createRecord = async (fields) => {
   console.log(selectedInfo(createdRecord))
 }
 // function to clg only the important parts in return:
-const selectedInfo = (data) => {
+const selectedInfo = (data) => { // <<<<<<<<<<<
   return {
     id: data.id,
     fields: data.fields,
     // createdTime: data.createdTime, // <= not working yet
   }
 }
-createRecord({
-  id: 200,
-  name: 'Jim',
-  email: 'jim@email.se',
-  custom_fields: 'new addition',
-  event: 'user_created',
-})
+// createRecord({
+//   id: 200,
+//   name: 'Jim',
+//   email: 'jim@email.se',
+//   custom_fields: 'new addition',
+//   event: 'user_created',
+// })
 // ----------------------------------------------------
+
+// ==> update records
+ const updateRecord = async (id, fields) => {
+   const updatedRecord = await table.update(id, fields)
+   console.log(selectedInfo(updatedRecord))
+ }
+
+// updateRecord('rec4T7LlvkUMh6hiK', {
+//   name: "Benke von updated",
+// })
+
+// ==> delete records
+
+const deleteRecord = async (id) => {
+  const deletedRecords = await table.destroy(id)
+  console.log('deleted:', selectedInfo(deletedRecords))
+}
+
+deleteRecord('recUuA1wXiyyc1rvg')
